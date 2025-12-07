@@ -11,3 +11,11 @@ Soms zitten er ook gouden koekjes in het spel, als je die raakt kunnen er meerde
 - `Het Grootste Koekje:` Automatisch een bonus op je XP.
 - `Koekjes-bal:` Je krijgt een extra bal om nog eens mee te schieten.
 - `Verdubbelend Koekje:` wanneer je dit koekje raakt, split de bal in tweeën op om extra veel koekjes te kunnen raken.
+
+
+# 2.1 Forces & Collisions
+
+Het maken van een schietende bal en collisions.
+
+https://github.com/user-attachments/assets/27be38cd-75c2-4526-b567-ae9641b37e05
+
