@@ -1,21 +1,27 @@
 using UnityEngine;
-
 public class Shoot : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
-    [SerializeField] private float forceBuild = 20f;
-    [SerializeField] private float maximumHoldTime = 5f;
-    [SerializeField] private float maxLineLength = 10f;  // <-- maximale lijnlengte
-
-    private float _pressTimer = 0f;
+    [SerializeField] private float lineSpeed = 5f;
     private LineRenderer _line;
     private bool _lineActive = false;
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private float forceBuild = 10f;
+    [SerializeField] private float maximumHoldTime = 2f;
 
+    private float _pressTimer = 0f;
+    private float _launchForce = 0f;
+
+    private void Start()
+    {
+        _line = GetComponent<LineRenderer>();
+        _line.SetPosition(1, Vector3.zero);
+
+    }
     private void Update()
     {
         HandleShot();
     }
-
+    //Die functie scrijven we zelf
     private void HandleShot()
     {
         if (Input.GetMouseButtonDown(0))
@@ -24,31 +30,36 @@ public class Shoot : MonoBehaviour
             _lineActive = true;
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            _pressTimer = 0;
+
+        }
         if (Input.GetMouseButtonUp(0))
         {
+
             _lineActive = false;
             _line.SetPosition(1, Vector3.zero);
         }
+        if (Input.GetMouseButtonUp(0))
+        {
+            _launchForce = _pressTimer * forceBuild;
 
-        if (Input.GetMouseButton(0) && _pressTimer < maximumHoldTime)
+            GameObject ball = Instantiate(prefab, transform.parent);
+
+            ball.transform.rotation = transform.rotation;
+
+            ball.GetComponent<Rigidbody2D>().AddForce(ball.transform.right * _launchForce, ForceMode2D.Impulse);
+
+            ball.transform.position = transform.position;
+        }
+        if (_pressTimer < maximumHoldTime)
         {
             _pressTimer += Time.deltaTime;
         }
-
         if (_lineActive)
         {
-            // Bepaal lengte en begrens met maxLineLength
-            float length = Mathf.Min(_pressTimer * forceBuild, maxLineLength);
-
-            _line.SetPosition(1, Vector3.right * length);
+            _line.SetPosition(1, Vector3.right * _pressTimer * lineSpeed);
         }
-    }
-
-    private void Start()
-    {
-        _line = GetComponent<LineRenderer>();
-        _line.positionCount = 2;
-        _line.SetPosition(0, Vector3.zero);
-        _line.SetPosition(1, Vector3.zero);
     }
 }
