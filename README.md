@@ -21,7 +21,7 @@ Het maken van een schietende bal en collisions.
 https://github.com/user-attachments/assets/27be38cd-75c2-4526-b567-ae9641b37e05
 
 
-# 2.2 
+# 2.2 Aim, Shoot en Line
 
 
 Het maken van een line-renderer die meebeweegt met de cursor en groeit om te laten zien hoe hard de bal wordt geschoten.
