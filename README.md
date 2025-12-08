@@ -21,6 +21,8 @@ https://github.com/user-attachments/assets/27be38cd-75c2-4526-b567-ae9641b37e05
 
 [ShootBall.cs script](https://github.com/39813ma/M2_GDV_Peggle/blob/main/Assets/Scripts/ShootBall.cs)
 
+[TargetCollision.cs script](https://github.com/39813ma/M2_GDV_Peggle/blob/main/Assets/Scripts/TargetCollision.cs)
+
 #
 # 2.2 Aim, Shoot en Line
 
