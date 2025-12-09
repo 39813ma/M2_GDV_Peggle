@@ -30,6 +30,8 @@ Het maken van een line-renderer die meebeweegt met de cursor en groeit om te lat
 
 https://github.com/user-attachments/assets/416c5dec-2595-4a61-91e1-9bb2da19394d
 
+[Aim.cs](https://github.com/39813ma/M2_GDV_Peggle/blob/main/Assets/Scripts/Aim.cs)
+
 #
 # 3.1 Score & Triggers
 
